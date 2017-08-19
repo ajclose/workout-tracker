@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'signup' => 'users#new', as: :signup
+  post 'signup' => 'users#create'
+
+  get 'users/:id' => 'users#show', as: :user
+
 end
