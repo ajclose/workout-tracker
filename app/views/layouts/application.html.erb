@@ -10,6 +10,16 @@
 
   <body>
     <div class="container">
+      <header>
+        <h1>Crossfit Tracker</h1>
+        <nav>
+          <% if logged_in? %>
+          <%= link_to "Logout", logout_path, method: :delete %>
+          <% else %>
+          <%= link_to "Login", login_path %>
+          <% end %>
+        </nav>
+      </header>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
