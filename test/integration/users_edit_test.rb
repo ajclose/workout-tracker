@@ -7,6 +7,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "missing email" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: {user: {email: '', password: "password1", password_confirmation: "password1"}}
@@ -14,6 +15,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid email address" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: {user: {email: 'test@invalid', password: "password1", password_confirmation: "password1"}}
@@ -21,6 +23,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "password doesn't meet length requirements" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: {user: {email: @user.email, password: "foo", password_confirmation: "foo"}}
@@ -28,6 +31,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "passwords don't match" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: {user: {email: @user.email, password: "password1", password_confirmation: "password2"}}
@@ -35,6 +39,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     email = "update@example.com"
