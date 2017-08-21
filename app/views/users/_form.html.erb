@@ -1,4 +1,4 @@
-<%= form_for @user, url: signup_path do |f| %>
+<%= form_for @user do |f| %>
 
 <%= render 'shared/error_messages' %>
 <div class="">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="">
-  <%= f.submit "Create Account", class: 'btn btn-primary' %>
+  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
 </div>
 
 <% end %>
