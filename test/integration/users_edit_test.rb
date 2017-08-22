@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = User.create(email: "test@example.com", password: "password", password_confirmation: "password")
+    @user = User.create(email: "test@example.com", password: "password", password_confirmation: "password", activated: true)
   end
 
   test "missing email" do

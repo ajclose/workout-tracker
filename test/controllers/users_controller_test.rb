@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = User.create(email: "test@example.com", password: "password", password_confirmation: "password", admin: true)
-    @user2 = User.create(email: "test2@example.com", password: "password", password_confirmation: "password")
+    @user = User.create(email: "test@example.com", password: "password", password_confirmation: "password", admin: true, activated: true)
+    @user2 = User.create(email: "test2@example.com", password: "password", password_confirmation: "password", activated: true)
   end
 
   test "should redirect edit page when not logged in" do

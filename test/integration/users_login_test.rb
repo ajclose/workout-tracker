@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = User.create(email: "test@example.com", password: "password", password_confirmation: "password")
+    @user = User.create!(email: "test@example.com", password: "password", password_confirmation: "password", activated: true)
   end
 
   test "login with valid information followed by logout" do
