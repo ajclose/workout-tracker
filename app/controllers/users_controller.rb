@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
 
   def index
 
@@ -38,6 +40,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to user_path(current_user)
+  end
+
   private
 
     def user_params
@@ -49,6 +57,15 @@ class UsersController < ApplicationController
         flash[:danger] = "Please login"
         redirect_to login_path
       end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(user_path(current_user)) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(user_path(current_user)) unless current_user.admin?
     end
 
 end
