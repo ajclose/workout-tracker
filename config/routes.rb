@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', as: :logout
+  get 'weight-calculator' => 'weight_calculator#index'
 
   resources :users, except: [:index, :new, :create]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  
+
 end
