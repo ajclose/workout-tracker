@@ -4,22 +4,22 @@
 
 <p>Please select the weights you have available to you</p>
 <div class="">
-  <%= check_box_tag :weight, "45" %>
+  <%= check_box_tag :weight, "45", :checked %>
   <%= label_tag :weight, "45 lbs" %>
 
-  <%= check_box_tag :weight, "25" %>
+  <%= check_box_tag :weight, "25", :checked %>
   <%= label_tag :weight, "25 lbs" %>
 
-  <%= check_box_tag :weight, "15" %>
+  <%= check_box_tag :weight, "15", :checked %>
   <%= label_tag :weight, "15 lbs" %>
 
-  <%= check_box_tag :weight, "10" %>
+  <%= check_box_tag :weight, "10", :checked %>
   <%= label_tag :weight, "10 lbs" %>
 
-  <%= check_box_tag :weight, "5" %>
+  <%= check_box_tag :weight, "5", :checked %>
   <%= label_tag :weight, "5 lbs" %>
 
-  <%= check_box_tag :weight, "2.5" %>
+  <%= check_box_tag :weight, "2.5", :checked %>
   <%= label_tag :weight, "2.5 lbs" %>
 </div>
 
@@ -41,6 +41,10 @@
   <%= number_field_tag :totalWeight, "", placeholder: "Enter total weight" %>
 </div>
 
-<%= submit_tag "Tell me what I need!" %>
+<%= button_tag "Tell me what I need!" %>
 
 <% end %>
+
+<div class="results">
+
+</div>
