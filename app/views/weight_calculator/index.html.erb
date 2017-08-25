@@ -1,49 +1,16 @@
 <h3>Barbell Math</h3>
 
-<%= form_tag weight_calculator_path, class: 'plates' do %>
-
-<p>Please select the weights you have available to you</p>
-<div class="">
-  <%= check_box_tag :weight, "45", :checked %>
-  <%= label_tag :weight, "45 lbs" %>
-
-  <%= check_box_tag :weight, "25", :checked %>
-  <%= label_tag :weight, "25 lbs" %>
-
-  <%= check_box_tag :weight, "15", :checked %>
-  <%= label_tag :weight, "15 lbs" %>
-
-  <%= check_box_tag :weight, "10", :checked %>
-  <%= label_tag :weight, "10 lbs" %>
-
-  <%= check_box_tag :weight, "5", :checked %>
-  <%= label_tag :weight, "5 lbs" %>
-
-  <%= check_box_tag :weight, "2.5", :checked %>
-  <%= label_tag :weight, "2.5 lbs" %>
+<div class="btn btn-primary plates-div">
+  Tell me what I need
 </div>
 
-<div class="">
-  <p>Select your bar weight:</p>
-
-  <%= radio_button_tag :barWeight, "15" %>
-  <%= label_tag :barWeight, "15 lbs" %>
-
-  <%= radio_button_tag :barWeight, "35" %>
-  <%= label_tag :barWeight, "35 lbs" %>
-
-  <%= radio_button_tag :barWeight, "45", :checked %>
-  <%= label_tag :barWeight, "45 lbs" %>
-<div>
-
-<div class="">
-  <%= label_tag :totalWeight, "Total Weight" %>
-  <%= number_field_tag :totalWeight, "", placeholder: "Enter total weight" %>
+<div class="btn btn-primary weight-div">
+  Tell me what I have
 </div>
 
-<%= button_tag "Tell me what I need!" %>
+<div class="form">
 
-<% end %>
+</div>
 
 <div class="results">
 
