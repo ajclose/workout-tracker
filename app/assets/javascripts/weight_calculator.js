@@ -148,7 +148,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     const barWeightSelections = document.querySelectorAll('input[name="barWeight"]')
     if (barWeightSelections) {
-      barWeight = getBarWeight(barWeightSelections)
+      for (var i = 0; i < barWeightSelections.length; i++) {
+        const barWeightSelection = barWeightSelections[i]
+        if (barWeightSelection.checked) {
+          barWeight = barWeightSelection.value
+          console.log(barWeight);
+        }
+        barWeightSelection.addEventListener("change", function() {
+          barWeight = barWeightSelection.value
+          console.log(barWeight);
+        })
+      }
     }
 
     const platesForm = document.querySelector('form.plates')
