@@ -92,7 +92,6 @@ function weightForm() {
   </div>
 
 </form>
-
   `
 }
 
@@ -118,6 +117,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const plateButton = document.querySelector(".plates-div")
   const weightButton = document.querySelector(".weight-div")
   const formDiv = document.querySelector(".form")
+  const barLeft = document.querySelector("#barLeft")
+  const barRight = document.querySelector("#barRight")
   const weights = []
   let barWeight;
 
@@ -165,13 +166,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (platesForm) {
       platesForm.addEventListener("submit", function(event) {
         event.preventDefault()
+        barLeft.textContent = ""
+        barRight.textContent = ""
         const totalWeight = document.querySelector('input[name="totalWeight"]').value
         let plates = calcWeights(totalWeight, weights, barWeight)
+        console.log(plates);
         for(var weight in plates) {
-          const html = `
-          <p>You need ${plates[weight]} ${weight} lb plates</p>
-          `
-          results.insertAdjacentHTML("beforeend", html)
+          for (var i = 0; i < plates[weight]/2; i++) {
+            if (weight == 2.5) {
+              const html = `
+              <div class="plate-2-5">2.5</div>
+              `
+              barLeft.insertAdjacentHTML("afterbegin", html)
+              barRight.insertAdjacentHTML("beforeend", html)
+            } else {
+              const html = `
+              <div class="plate-${weight}">${weight}</div>
+              `
+              barLeft.insertAdjacentHTML("beforeend", html)
+              barRight.insertAdjacentHTML("afterbegin", html)
+            }
+          }
         }
       })
     }
