@@ -81,13 +81,14 @@
   border: 1px solid gray;
   height: 75px;
   width: 15px;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: black;
   color: white;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  word-wrap: break-word;
 }
 
 #barLeft {
@@ -117,4 +118,89 @@
   border: solid;
   height: 40px;
   width: 15px;
+}
+
+.plateRack {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.horizontal-plate-45 {
+  border: 1px solid gray;
+  height: 30px;
+  width: 125px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-plate-25 {
+  border: 1px solid gray;
+  height: 25px;
+  width: 125px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-plate-15 {
+  border: 1px solid gray;
+  height: 25px;
+  width: 125px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-plate-10 {
+  border: 1px solid gray;
+  height: 25px;
+  width: 125px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-plate-5 {
+  border: 1px solid gray;
+  height: 15px;
+  width: 75px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-plate-2-5 {
+  border: 1px solid gray;
+  height: 15px;
+  width: 65px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
 }
