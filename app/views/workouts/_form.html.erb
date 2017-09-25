@@ -1,0 +1,26 @@
+<%= form_for @workout do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        There were <%= pluralize(@workout.errors.count, "error") %>.
+      </div>
+      <ul>
+        <% @workout.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.label :date %>
+<%= f.date_field :date %>
+
+<div class="">
+  <%= f.label :tracked, class: "checkbox inline" do %>
+    <%= f.check_box :tracked %>
+    <span>Track Workout</span>
+  <% end %>
+</div>
+
+<%= f.submit %>
+
+<% end %>

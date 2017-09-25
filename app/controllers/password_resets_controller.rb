@@ -31,7 +31,7 @@ class PasswordResetsController < ApplicationController
       log_in @user
       @user.update_attribute(:reset_digest, nil)
       flash[:success] = "Password has been reset."
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       render 'edit'
     end

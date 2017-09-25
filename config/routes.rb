@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  root 'users#index'
+  root 'workouts#index'
 
   get 'signup' => 'users#new', as: :signup
   post 'signup' => 'users#create'
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new, :create]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :workouts
 
 end

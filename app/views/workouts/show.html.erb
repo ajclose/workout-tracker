@@ -1,0 +1,5 @@
+<h3><%= @workout.date %></h3>
+<h4><%= @workout.tracked %></h4>
+<% if @workout.user_id === current_user.id %>
+<%= link_to 'Edit Workout', edit_workout_path(@workout) %>
+<% end %>

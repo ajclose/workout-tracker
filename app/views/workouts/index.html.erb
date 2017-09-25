@@ -1,0 +1,5 @@
+<h3>Your workouts</h3>
+
+<% @workouts.each do |workout| %>
+<%= link_to workout.date, workout_path(workout) %>
+<% end %>
