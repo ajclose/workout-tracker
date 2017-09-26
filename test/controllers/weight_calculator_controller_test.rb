@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class WeightCalculatorControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get index" do
+    get weight_calculator_path
+    assert_response :success
+  end
 end

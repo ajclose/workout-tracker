@@ -22,7 +22,6 @@ class CreateWorkoutTest < ActionDispatch::IntegrationTest
       post workouts_path, params: { workout: { date: '2017-09-25', user_id: @user.id}}
     end
     assert_not flash.empty?
-    assert_redirected_to root_path
   end
 
 end

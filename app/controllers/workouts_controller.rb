@@ -15,7 +15,9 @@ class WorkoutsController < ApplicationController
     @workout = Workout.create(workout_params)
     if @workout.save
       flash[:success] = "Workout created"
-      redirect_to root_path
+      if params[:commit] === "AMRAP"
+        redirect_to new_workout_amrap_path(@workout)
+      end
     else
       render 'new'
     end

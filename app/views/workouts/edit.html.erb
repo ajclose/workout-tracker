@@ -1,2 +1,8 @@
 <%= render "form" %>
 <%= link_to "Delete Workout", workout_path, method: :delete, data: {confirm: "Are you sure you want to delete this workout?"} %>
+<% if @workout.amrap %>
+<h3>AMRAP</h3>
+<p><%= @workout.amrap.time %> minutes </p>
+<p><%= @workout.amrap.score %> rounds </p>
+<%= link_to "Edit", edit_workout_amrap_path(@workout, @workout.amrap) %>
+<% end %>
