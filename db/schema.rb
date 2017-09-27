@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926012441) do
+ActiveRecord::Schema.define(version: 20170927154134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amrapmovements", force: :cascade do |t|
+    t.bigint "amrap_id"
+    t.string "rx_movement"
+    t.integer "rx_reps"
+    t.integer "rx_weight"
+    t.string "rx_unit"
+    t.string "scaled_movement"
+    t.integer "scaled_reps"
+    t.integer "scaled_weight"
+    t.string "scaled_unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amrap_id"], name: "index_amrapmovements_on_amrap_id"
+  end
 
   create_table "amraps", force: :cascade do |t|
     t.bigint "workout_id"
@@ -48,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170926012441) do
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "amrapmovements", "amraps"
   add_foreign_key "amraps", "workouts"
   add_foreign_key "workouts", "users"
 end

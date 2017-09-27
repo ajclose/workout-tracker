@@ -1,0 +1,2 @@
+module AmrapmovementsHelper
+end

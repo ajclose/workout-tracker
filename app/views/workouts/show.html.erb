@@ -1,10 +1,25 @@
 <h3><%= @workout.date %></h3>
-<h4><%= @workout.tracked %></h4>
+<h4>Tracked:
+  <%= @workout.tracked %></h4>
 <% if @workout.amrap %>
-<h3>AMRAP</h3>
-<p>Time: <%= @workout.amrap.time %> minutes</p>
-<p>Score: <%= @workout.amrap.score %> rounds</p>
+<h3><%= @workout.amrap.time %>
+  minute AMRAP</h3>
+<p>Score:
+  <%= @workout.amrap.score %>
+  rounds</p>
+<% @workout.amrap.amrapmovements.each do |movement| %>
+<p>RX:
+  <%= movement.rx_reps %>
+  <%= movement.rx_movement %>
+  <%= movement.rx_weight %>
+  <%= movement.rx_unit %></p>
+<p>Scaled:
+  <%= movement.scaled_reps %>
+  <%= movement.scaled_movement %>
+  <%= movement.scaled_weight %>
+  <%= movement.scaled_unit %></p>
+<% end %>
 <% end %>
 <% if @workout.user_id === current_user.id %>
-<%= link_to 'Edit Workout', edit_workout_path(@workout) %>
+  <%= link_to 'Edit Workout', edit_workout_path(@workout) %>
 <% end %>

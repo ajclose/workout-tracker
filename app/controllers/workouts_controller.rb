@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @workouts = Workout.all
+    @workouts = Workout.where(user_id: current_user.id)
   end
 
   def new

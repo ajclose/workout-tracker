@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container <%= content_for(:body_class) if content_for?(:body_class)%>">
       <header>
         <h1><%= link_to "Crossfit Tracker", root_path %></h1>
         <nav>

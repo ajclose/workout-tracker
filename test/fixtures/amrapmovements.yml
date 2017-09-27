@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amrap: one
+  rx_movement: MyString
+  rx_reps: 1
+  rx_weight: 1
+  rx_unit: MyString
+  scaled_movement: MyString
+  scaled_reps: 1
+  scaled_weight: 1
+  scaled_unit: MyString
+
+two:
+  amrap: two
+  rx_movement: MyString
+  rx_reps: 1
+  rx_weight: 1
+  rx_unit: MyString
+  scaled_movement: MyString
+  scaled_reps: 1
+  scaled_weight: 1
+  scaled_unit: MyString

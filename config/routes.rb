@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :workouts do
     resources :amraps
   end
-
+  resources :amraps do
+    resources :amrapmovements
+  end
 end

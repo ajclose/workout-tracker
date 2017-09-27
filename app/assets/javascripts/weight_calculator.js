@@ -115,7 +115,9 @@ function weightForm() {
       <div class="weight horizontal-plate-2-5">2.5</div>
     </div>
 
-
+    <div class="btn btn-primary reset">
+    Reset
+    </div>
   </div>
   </div>
 
@@ -123,6 +125,10 @@ function weightForm() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
+
+  if (!document.querySelector(".weight_calculator")){
+    return
+  }
   const results = document.querySelector(".results")
   const plateButton = document.querySelector(".plates-div")
   const weightButton = document.querySelector(".weight-div")
@@ -155,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       totalWeight += weight * 2
     }
     const html = `
-    You have ${totalWeight} pounds!
+    <h3>You have ${totalWeight} pounds!</h3>
     `
     results.textContent = ""
     results.insertAdjacentHTML("beforeend", html)
@@ -211,17 +217,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const weightSelection = weightSelections[i]
         if(weightSelection.checked) {
           weights.push(weightSelection.value)
-          }
+        }
         weightSelection.addEventListener("change", function() {
           if (!this.checked) {
             const index = weights.indexOf(this.value)
             weights.splice(index, 1)
-              } else {
+          } else {
             weights.push(this.value)
-              }
+          }
         })
       }
     }
+
     const barWeightSelections = document.querySelectorAll('input[name="barWeight"]')
     if (barWeightSelections) {
       barWeight = getBarWeight(barWeightSelections)
@@ -294,5 +301,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
       }
     }
+    const resetButton = document.querySelector(".reset")
+    resetButton.addEventListener("click", function(event) {
+      weights.splice(0, weights.length)
+      totalWeight(barWeight, weights)
+    })
   })
 })

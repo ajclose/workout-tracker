@@ -34,7 +34,7 @@ class AmrapsController < ApplicationController
 
   def destroy
     @amrap.destroy
-    flash[:success] = "AMRAP delete"
+    flash[:success] = "AMRAP deleted"
     redirect_to edit_workout_path(@workout)
   end
 
