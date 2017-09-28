@@ -3,7 +3,7 @@ require 'test_helper'
 class AmrapmovementTest < ActiveSupport::TestCase
   def setup
     @user = User.create!(email: "test@example.com", password: "password", password_confirmation: "password")
-    @workout = Workout.create!(date: "2017-09-25", tracked: "true", user_id: @user.id)
+    @workout = Workout.create!(date: "2017-09-25", user_id: @user.id)
     @amrap = Amrap.create!(time: 10, score: 5, workout_id: @workout.id)
     @amrapmovement = Amrapmovement.create!(rx_movement: "deadlift", rx_reps: 5, rx_weight: 155, rx_unit: "lbs", amrap_id: @amrap.id)
     @amrapmovement1 = Amrapmovement.create!(rx_movement: "row", rx_reps: 500, rx_weight: '', rx_unit: "meters", amrap_id: @amrap.id)

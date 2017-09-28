@@ -47,7 +47,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:date, :tracked).merge(user_id: current_user.id)
+    params.require(:workout).permit(:date).merge(user_id: current_user.id)
   end
 
   def set_workout

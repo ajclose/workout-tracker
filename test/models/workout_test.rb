@@ -3,7 +3,7 @@ require 'test_helper'
 class WorkoutTest < ActiveSupport::TestCase
   def setup
     @user = User.create!(email: "test@example.com", password: "password", password_confirmation: "password")
-    @workout = Workout.create!(date: "2017-09-25", tracked: "true", user_id: @user.id)
+    @workout = Workout.create!(date: "2017-09-25", user_id: @user.id)
   end
 
   test "should be valid" do

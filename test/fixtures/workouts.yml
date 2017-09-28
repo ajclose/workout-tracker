@@ -3,9 +3,8 @@
 one:
   date: MyString
   user: one
-  tracked: false
+
 
 two:
   date: MyString
   user: two
-  tracked: false
