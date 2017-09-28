@@ -19,7 +19,7 @@ class WorkoutsEditTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_workout_path(@workout)
     assert_template 'workouts/edit'
-    date = '2017-09-26'
+    date = Date.today()
     patch workout_path(@workout), params: {workout: {date: date}}
     assert_not flash.empty?
     assert_redirected_to @workout

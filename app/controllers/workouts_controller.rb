@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @workouts = Workout.where(user_id: current_user.id)
+    @workouts = Workout.where(user_id: current_user.id).order("date DESC")
   end
 
   def new
@@ -17,6 +17,8 @@ class WorkoutsController < ApplicationController
       flash[:success] = "Workout created"
       if params[:commit] === "AMRAP"
         redirect_to new_workout_amrap_path(@workout)
+      elsif params[:commit] === "Rounds for Time"
+        redirect_to new_workout_rft_path(@workout)
       end
     else
       render 'new'
@@ -34,6 +36,8 @@ class WorkoutsController < ApplicationController
       flash[:success] = "Workout updated"
       if params[:commit] === "AMRAP"
         redirect_to new_workout_amrap_path(@workout)
+      elsif params[:commit] === "Rounds for Time"
+        redirect_to new_workout_rft_path(@workout)
       else
         redirect_to @workout
       end

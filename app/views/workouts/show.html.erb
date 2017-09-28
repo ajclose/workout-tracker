@@ -23,3 +23,13 @@
 <% if @workout.user_id === current_user.id %>
   <%= link_to 'Edit Workout', edit_workout_path(@workout) %>
 <% end %>
+
+<% if @workout.rft %>
+  <% @workout.rft.each do |rft| %>
+<h3><%= rft.rounds %>
+  Rounds for Time</h3>
+<p>Score:
+  <%= rft.score %>
+  </p>
+  <% end %>
+  <% end %>

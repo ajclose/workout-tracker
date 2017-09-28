@@ -1,0 +1,22 @@
+<%= form_for([@workout, @rft]) do |f| %>
+  <% if @rft.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        There were <%= pluralize(@rft.errors.count, "error") %>.
+      </div>
+      <ul>
+        <% @rft.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.label :rounds %>
+<%= f.number_field :rounds %>
+
+<%= f.label :score %>
+<%= f.text_field :score %>
+
+<%= f.submit %>
+
+<% end %>

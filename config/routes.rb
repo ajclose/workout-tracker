@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :workouts do
     resources :amraps
+    resources :rfts
   end
   resources :amraps do
     resources :amrapmovements
