@@ -12,7 +12,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.create(workout_params)
+    @workout = Workout.find_or_create_by(workout_params)
     if @workout.save
       flash[:success] = "Workout created"
       if params[:commit] === "AMRAP"
@@ -32,7 +32,11 @@ class WorkoutsController < ApplicationController
   def update
     if @workout.update_attributes(workout_params)
       flash[:success] = "Workout updated"
-      redirect_to @workout
+      if params[:commit] === "AMRAP"
+        redirect_to new_workout_amrap_path(@workout)
+      else
+        redirect_to @workout
+      end
     else
       render 'edit'
     end

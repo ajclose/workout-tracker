@@ -1,11 +1,12 @@
 <h3><%= @workout.date %></h3>
 <% if @workout.amrap %>
-<h3><%= @workout.amrap.time %>
+<% @workout.amrap.each do |amrap| %>
+<h3><%= amrap.time %>
   minute AMRAP</h3>
 <p>Score:
-  <%= @workout.amrap.score %>
+  <%= amrap.score %>
   rounds</p>
-<% @workout.amrap.amrapmovements.each do |movement| %>
+<% amrap.amrapmovements.each do |movement| %>
 <p>RX:
   <%= movement.rx_reps %>
   <%= movement.rx_movement %>
@@ -16,6 +17,7 @@
   <%= movement.scaled_movement %>
   <%= movement.scaled_weight %>
   <%= movement.scaled_unit %></p>
+<% end %>
 <% end %>
 <% end %>
 <% if @workout.user_id === current_user.id %>
