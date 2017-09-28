@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   resources :amraps do
     resources :amrapmovements
   end
+
+  resources :rfts do
+    resources :rftmovements
+  end
 end

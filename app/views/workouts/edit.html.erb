@@ -19,7 +19,31 @@
 <p>Score:
   <%= amrap.score %>
   rounds</p>
+  <%= link_to "Edit", edit_workout_amrap_path(@workout, amrap) %>
 <% amrap.amrapmovements.each do |movement| %>
+<p>RX:
+  <%= movement.rx_reps %>
+  <%= movement.rx_movement %>
+  <%= movement.rx_weight %>
+  <%= movement.rx_unit %></p>
+<p>Scaled:
+  <%= movement.scaled_reps %>
+  <%= movement.scaled_movement %>
+  <%= movement.scaled_weight %>
+  <%= movement.scaled_unit %></p>
+<% end %>
+<% end %>
+<% end %>
+
+<% if @workout.rft %>
+<% @workout.rft.each do |rft| %>
+<h3><%= rft.rounds %>
+  Rounds for Time</h3>
+<p>Score:
+  <%= rft.score %>
+  </p>
+    <%= link_to "Edit", edit_workout_rft_path(@workout, rft) %>
+<% rft.rftmovements.each do |movement| %>
 <p>RX:
   <%= movement.rx_reps %>
   <%= movement.rx_movement %>

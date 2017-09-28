@@ -1,0 +1,31 @@
+<%= form_for([@rft, @rftmovement]) do |f| %>
+<div class="row">
+<%= f.label :rx_reps %>
+<%= f.number_field :rx_reps %>
+
+<%= f.label :rx_movement %>
+<%= f.text_field :rx_movement %>
+
+<%= f.label :rx_weight %>
+<%= f.number_field :rx_weight %>
+
+<%= f.label :rx_unit %>
+<%= f.text_field :rx_unit %>
+</div>
+
+<div class="row">
+<%= f.label :scaled_reps %>
+<%= f.number_field :scaled_reps %>
+
+<%= f.label :scaled_movement %>
+<%= f.text_field :scaled_movement %>
+
+<%= f.label :scaled_weight %>
+<%= f.number_field :scaled_weight %>
+
+<%= f.label :scaled_unit %>
+<%= f.text_field :scaled_unit %>
+</div>
+
+<%= f.submit "Add movement"%>
+<% end %>

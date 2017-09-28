@@ -1,0 +1,2 @@
+module RftmovementsHelper
+end

@@ -1,6 +1,5 @@
-<h3><%= link_to 'RFT', workout_path(@workout) %> - <%= @workout.date %></h3>
-
 <%= render "form" %>
+<%= link_to "Delete Movement", rft_rftmovement_path(@rft, @rftmovement), method: :delete, data: {confirm: "Are you sure you want to delete this workout?"} %>
 
 <h4><%= link_to 'ADD MOVEMENT', new_rft_rftmovement_path(@rft) %></h4>
 

@@ -1,4 +1,7 @@
 <h3><%= @workout.date %></h3>
+<% if @workout.user_id === current_user.id %>
+<%= link_to 'Edit Workout', edit_workout_path(@workout) %>
+<% end %>
 <% if @workout.amrap %>
 <% @workout.amrap.each do |amrap| %>
 <h3><%= amrap.time %>
@@ -20,16 +23,25 @@
 <% end %>
 <% end %>
 <% end %>
-<% if @workout.user_id === current_user.id %>
-  <%= link_to 'Edit Workout', edit_workout_path(@workout) %>
-<% end %>
 
 <% if @workout.rft %>
-  <% @workout.rft.each do |rft| %>
+<% @workout.rft.each do |rft| %>
 <h3><%= rft.rounds %>
   Rounds for Time</h3>
 <p>Score:
   <%= rft.score %>
   </p>
-  <% end %>
-  <% end %>
+<% rft.rftmovements.each do |movement| %>
+<p>RX:
+  <%= movement.rx_reps %>
+  <%= movement.rx_movement %>
+  <%= movement.rx_weight %>
+  <%= movement.rx_unit %></p>
+<p>Scaled:
+  <%= movement.scaled_reps %>
+  <%= movement.scaled_movement %>
+  <%= movement.scaled_weight %>
+  <%= movement.scaled_unit %></p>
+<% end %>
+<% end %>
+<% end %>
