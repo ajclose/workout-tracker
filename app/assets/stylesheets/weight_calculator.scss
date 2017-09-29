@@ -199,8 +199,61 @@
   align-items: center;
 }
 
+.plateRack {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .stack {
   display: flex;
   flex-direction: column;
   margin: 0 10px;
+}
+
+form.plates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+form.weight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.results {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1em;
+  height: 10vh;
+}
+
+.weight-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-weight-input {
+  display: flex;
+  flex-direction: column;
+  input {
+    text-align: center;
+    margin-bottom: .75em;
+  }
+}
+
+.form {
+  height: 30vh;
+}
+
+.error {
+  color: red;
 }

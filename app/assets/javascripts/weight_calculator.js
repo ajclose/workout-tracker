@@ -36,12 +36,12 @@ function plateForm() {
   <label for="barWeight">45 lbs</label>
   <div>
 
-  <div class="">
+  <div class="total-weight-input">
   <label for="totalWeight">Total Weight</label>
   <input type="number" name="totalWeight" id="totalWeight" value="" placeholder="Enter total weight">
   </div>
 
-  <button name="button" type="submit">Tell me what I need!</button>
+  <button class="btn btn-primary" name="button" type="submit">Tell me what I need!</button>
 
   </form>
   `
@@ -52,7 +52,7 @@ function weightForm() {
   <form class="weight" action="/weight-calculator" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="vQcYvxt5lo3M5tDNiIB5K8csY4FgmrCu7FmFsh1Ntj+bjaYGfU0ccQ6z1q8ZQqSCgCMvIpF9jDoJB/7gEip54g==">
 
   <div class="">
-  <p>Select your bar weight:</p>
+  <h4>Select your bar weight:</h4>
 
   <input type="radio" name="barWeight" id="barWeight_15" value="15">
   <label for="barWeight">15 lbs</label>
@@ -67,6 +67,9 @@ function weightForm() {
 
   <div class="">
   <p>Click the weight to add it to the bar</p>
+  <div class="btn btn-primary reset">
+  Reset
+  </div>
   <div class="plateRack">
   <div class="stack">
     <div class="weight horizontal-plate-45">45</div>
@@ -115,9 +118,6 @@ function weightForm() {
       <div class="weight horizontal-plate-2-5">2.5</div>
     </div>
 
-    <div class="btn btn-primary reset">
-    Reset
-    </div>
   </div>
   </div>
 
@@ -242,20 +242,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
         barRight.textContent = ""
         const totalWeight = document.querySelector('input[name="totalWeight"]').value
         let plates = calcWeights(totalWeight, weights, barWeight)
-        for(var weight in plates) {
-          for (var i = 0; i < plates[weight]/2; i++) {
-            if (weight == 2.5) {
-              const html = `
-              <div class="plate-2-5">2.5</div>
-              `
-              barLeft.insertAdjacentHTML("afterbegin", html)
-              barRight.insertAdjacentHTML("beforeend", html)
-            } else {
-              const html = `
-              <div class="plate-${weight}">${weight}</div>
-              `
-              barLeft.insertAdjacentHTML("beforeend", html)
-              barRight.insertAdjacentHTML("afterbegin", html)
+        if (plates) {
+          for(var weight in plates) {
+            for (var i = 0; i < plates[weight]/2; i++) {
+              if (weight == 2.5) {
+                const html = `
+                <div class="plate-2-5">2.5</div>
+                `
+                barLeft.insertAdjacentHTML("afterbegin", html)
+                barRight.insertAdjacentHTML("beforeend", html)
+              } else {
+                const html = `
+                <div class="plate-${weight}">${weight}</div>
+                `
+                barLeft.insertAdjacentHTML("beforeend", html)
+                barRight.insertAdjacentHTML("afterbegin", html)
+              }
             }
           }
         }
@@ -264,7 +266,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function calcWeights(totalWeight, weights, barWeight) {
       results.textContent = ""
+      if (!totalWeight) {
+        const html = `
+        <p class="error">Please enter a weight</p>
+        `
+        results.insertAdjacentHTML("afterbegin", html)
+        return
+      }
       weights = weights.sort(function(a,b){return b-a})
+      const minWeight = weights[weights.length - 1]
       let remainingWeight = totalWeight -  barWeight
       let plates = {}
       for (let i=0; i<weights.length; i++) {
@@ -274,6 +284,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
           plates[weight] = Math.floor(remainingWeight/doubleWeight) * 2
           remainingWeight = remainingWeight%doubleWeight
         }
+      }
+      let calculatedWeight = 0
+      for (var weight in plates) {
+        const quantity = plates[weight]
+        calculatedWeight += (parseFloat(weight)*parseInt(quantity))
+      }
+      calculatedWeight += parseInt(barWeight)
+      if (calculatedWeight !== parseInt(totalWeight)) {
+        const high = calculatedWeight + (minWeight * 2)
+        const html = `<p class="error">Not possible!  Try ${calculatedWeight} or ${high}</p>`
+        results.insertAdjacentHTML("afterbegin", html)
+        return
       }
       return plates
     }
