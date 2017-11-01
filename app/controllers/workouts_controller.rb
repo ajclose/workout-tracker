@@ -19,6 +19,8 @@ class WorkoutsController < ApplicationController
         redirect_to new_workout_amrap_path(@workout)
       elsif params[:commit] === "Rounds for Time"
         redirect_to new_workout_rft_path(@workout)
+      elsif params[:commit] === "Strength"
+        redirect_to new_workout_strength_path(@workout)
       end
     else
       render 'new'
@@ -38,6 +40,8 @@ class WorkoutsController < ApplicationController
         redirect_to new_workout_amrap_path(@workout)
       elsif params[:commit] === "Rounds for Time"
         redirect_to new_workout_rft_path(@workout)
+      elsif params[:commit] === "Strength"
+        redirect_to new_workout_strength_path(@workout)
       else
         redirect_to @workout
       end

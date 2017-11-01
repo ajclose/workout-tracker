@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>WorkoutTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -9,19 +10,49 @@
 
   <body>
     <div class="container <%= content_for(:body_class) if content_for?(:body_class)%>">
-      <header>
-        <h1><%= link_to "Crossfit Tracker", root_path %></h1>
-        <nav>
-          <% if logged_in? %>
-          <%= link_to "Account", edit_user_path(current_user) %>
-          <%= link_to "New Workout", new_workout_path %>
-          <%= link_to "Logout", logout_path, method: :delete %>
-          <% else %>
-          <%= link_to "Login", login_path %>
-          <% end %>
-          <%= link_to "Barbell Math", weight_calculator_path %>
+
+        <nav class="navbar navbar-default">
+            <h1><%= link_to "Crossfit Tracker", root_path, class: "navbar-brand" %></h1>
+            <ul class="nav nav-pills">
+              <li role="presentation" class="nav-item">
+                <%= link_to "Barbell Math", weight_calculator_path, class: "nav-link" %>
+              </li>
+              <% if logged_in? %>
+              <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  My Workouts <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li role="presentation" class="nav-item">
+                    <%= link_to "All", root_path %>
+                  </li>
+                  <li role="presentation" class="nav-item">
+                    <%= link_to "AMRAP", root_path %>
+                  </li>
+                  <li role="presentation" class="nav-item">
+                    <%= link_to "Rounds for Time", root_path %>
+                  </li>
+                  <li role="presentation" class="nav-item">
+                    <%= link_to "Strength", root_path %>
+                  </li>
+                </ul>
+              <li role="presentation" class="nav-item">
+                <%= link_to "New Workout", new_workout_path, class: "nav-link" %>
+              </li>
+              <li role="presentation" class="nav-item">
+                <%= link_to "Account", edit_user_path(current_user), class: "nav-link" %>
+              </li>
+              <li role="presentation" class="nav-item">
+                <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+              </li>
+              <% else %>
+              <li role="presentation" class="nav-item">
+                <%= link_to "Login", login_path, class: "nav-link" %>
+              </li>
+              <% end %>
+            </ul>
         </nav>
-      </header>
+
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>

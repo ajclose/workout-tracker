@@ -45,3 +45,9 @@
 <% end %>
 <% end %>
 <% end %>
+
+<% if @workout.strength %>
+<% @workout.strength.each do |strength| %>
+<h3><%= strength.sets %> X <%= strength.reps %> <%= strength.movement %> <%= strength.weight %> lbs </h3>
+<% end %>
+<% end %>

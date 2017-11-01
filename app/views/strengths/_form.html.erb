@@ -1,0 +1,29 @@
+<%= form_for([@workout, @strength]) do |f| %>
+  <% if @strength.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        There were <%= pluralize(@strength.errors.count, "error") %>.
+      </div>
+      <ul>
+        <% @strength.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.label :movement %>
+<%= f.text_field :movement %>
+
+<%= f.label :sets %>
+<%= f.number_field :sets %>
+
+<%= f.label :reps %>
+<%= f.number_field :reps %>
+
+<%= f.label :weight %>
+<%= f.number_field :weight %>
+
+<%= f.submit %>
+
+<% end %>
