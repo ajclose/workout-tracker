@@ -4,7 +4,7 @@ class StrengthTest < ActiveSupport::TestCase
   def setup
     @user = User.create!(email: "test@example.com", password: "password", password_confirmation: "password")
     @workout = Workout.create!(date: "2017-09-25", user_id: @user.id)
-    @strength = Strength.create!(movement: "Deadlift", sets: 1, reps: 5, weight: 225, workout_id: @workout.id)
+    @strength = Strength.create!(movement: "Deadlift", sets: 1, reps: 5, weight: 225, notes: "This was a challenge", workout_id: @workout.id)
   end
 
   test "should be valid" do

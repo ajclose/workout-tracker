@@ -41,7 +41,7 @@ class StrengthsController < ApplicationController
   private
 
   def strength_params
-    params.require(:strength).permit(:movement, :reps, :sets, :weight).merge(workout_id: params[:workout_id])
+    params.require(:strength).permit(:movement, :reps, :sets, :weight, :notes).merge(workout_id: params[:workout_id])
   end
 
   def set_workout

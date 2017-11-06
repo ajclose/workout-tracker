@@ -64,7 +64,9 @@
 
 <% if @workout.strength %>
 <% @workout.strength.each do |strength| %>
-  <p>STRENGTH</p>
-    <%= link_to "Edit", edit_workout_strength_path(@workout, strength) %>
+<h3><%= strength.sets %> X <%= strength.reps %> <%= strength.movement %> <%= strength.weight %> lbs </h3>
+<h4>Notes:</h4>
+<p><%= strength.notes %></p>
+<%= link_to "Edit", edit_workout_strength_path(@workout, strength) %>
 <% end %>
 <% end %>

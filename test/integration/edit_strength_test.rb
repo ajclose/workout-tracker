@@ -45,11 +45,13 @@ class StrengthsEditTest < ActionDispatch::IntegrationTest
     get edit_workout_strength_path(@workout, @strength)
     assert_template 'strengths/edit'
     weight = 205
-    patch workout_strength_path(@workout, @strength), params: {strength: {weight: weight}}
+    notes = "Deadlifting is fun!"
+    patch workout_strength_path(@workout, @strength), params: {strength: {weight: weight, notes: notes}}
     assert_not flash.empty?
     assert_redirected_to edit_workout_strength_path(@workout, @strength)
     @strength.reload
     assert_equal weight, @strength.weight
+    assert_equal notes, @strength.notes
   end
 
 end
