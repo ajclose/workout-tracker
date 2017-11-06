@@ -41,7 +41,7 @@ class AmrapsController < ApplicationController
   private
 
   def amrap_params
-    params.require(:amrap).permit(:time, :score).merge(workout_id: params[:workout_id])
+    params.require(:amrap).permit(:time, :score, :additional_reps).merge(workout_id: params[:workout_id])
   end
 
   def set_workout

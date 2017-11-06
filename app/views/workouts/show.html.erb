@@ -8,7 +8,7 @@
   minute AMRAP</h3>
 <p>Score:
   <%= amrap.score %>
-  rounds</p>
+  rounds <%= amrap.additional_reps %> reps</p>
 <% amrap.amrapmovements.each do |movement| %>
 <p>RX:
   <%= movement.rx_reps %>

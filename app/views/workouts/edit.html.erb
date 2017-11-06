@@ -16,9 +16,9 @@
 <% @workout.amrap.each do |amrap| %>
 <h3><%= amrap.time %>
   minute AMRAP</h3>
-<p>Score:
-  <%= amrap.score %>
-  rounds</p>
+  <p>Score:
+    <%= amrap.score %>
+    rounds <%= amrap.additional_reps %> reps</p>
   <%= link_to "Edit", edit_workout_amrap_path(@workout, amrap) %>
 <% amrap.amrapmovements.each do |movement| %>
 <p>RX:
