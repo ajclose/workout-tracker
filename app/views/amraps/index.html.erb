@@ -1,0 +1,11 @@
+<% @workouts.each do |workout| %>
+<% if workout.amrap %>
+  <% workout.amrap.each do |amrap| %>
+  <div>
+  <%= link_to workout.date, workout_path(workout) %>
+  <%= link_to "#{amrap.time} minute AMRAP", workout_amrap_path(workout, amrap) %>
+  <%= amrap.score %>
+</div>
+  <% end %>
+  <% end %>
+<% end %>

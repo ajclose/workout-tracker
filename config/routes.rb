@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', as: :logout
   get 'weight-calculator' => 'weight_calculator#index'
+  get 'amraps' => 'amraps#index'
 
   resources :users, except: [:index, :new, :create]
   resources :account_activations, only: [:edit]
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     resources :rfts
     resources :strengths
   end
-  
+
   resources :amraps do
     resources :amrapmovements
   end

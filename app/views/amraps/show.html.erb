@@ -1,0 +1,20 @@
+<h3><%= link_to @amrap.workout.date, workout_path(@amrap.workout) %></h3>
+
+<h4><%= @amrap.time %> minute AMRAP</h4>
+<p>Score: <%= @amrap.score %> rounds <%= @amrap.additional_reps %> reps</p>
+
+<% @amrap.amrapmovements.each do |movement| %>
+<p>RX:
+  <%= movement.rx_reps %>
+  <%= movement.rx_movement %>
+  <%= movement.rx_weight %>
+  <%= movement.rx_unit %></p>
+<p>Scaled:
+  <%= movement.scaled_reps %>
+  <%= movement.scaled_movement %>
+  <%= movement.scaled_weight %>
+  <%= movement.scaled_unit %></p>
+<% end %>
+
+<h4>Notes:</h4>
+<p><%= @amrap.notes %></p>

@@ -20,7 +20,7 @@ class AmrapsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "should redirect when logged in as different user" do
+  test "should redirect edit when logged in as different user" do
     log_in_as(@user2)
     get edit_workout_amrap_path(@workout, @amrap)
     assert flash.empty?
@@ -30,6 +30,25 @@ class AmrapsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when logged in as different user" do
     log_in_as(@user2)
     patch workout_amrap_path(@workout, @amrap), params: {amrap: {time: "11"}}
+    assert flash.empty?
+    assert_redirected_to root_path
+  end
+
+  test "should redirect index page when not logged in" do
+    get amraps_path
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show page when not logged in" do
+    get workout_amrap_path(@workout, @amrap)
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show when logged in as different user" do
+    log_in_as(@user2)
+    get workout_amrap_path(@workout, @amrap)
     assert flash.empty?
     assert_redirected_to root_path
   end

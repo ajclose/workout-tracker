@@ -4,8 +4,8 @@
 <% end %>
 <% if @workout.amrap %>
 <% @workout.amrap.each do |amrap| %>
-<h3><%= amrap.time %>
-  minute AMRAP</h3>
+<h3><%= link_to "#{amrap.time} minute AMRAP", workout_amrap_path(@workout, amrap) %>
+</h3>
 <p>Score:
   <%= amrap.score %>
   rounds <%= amrap.additional_reps %> reps</p>
