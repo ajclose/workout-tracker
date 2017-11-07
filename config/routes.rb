@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'weight-calculator' => 'weight_calculator#index'
   get 'amraps' => 'amraps#index'
   get 'roundsfortime' => 'rfts#index'
+  get 'strength' => 'strengths#index'
 
   resources :users, except: [:index, :new, :create]
   resources :account_activations, only: [:edit]

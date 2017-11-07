@@ -1,0 +1,10 @@
+<% @workouts.each do |workout| %>
+<% if workout.strength %>
+  <% workout.strength.each do |strength| %>
+  <div>
+  <%= link_to workout.date, workout_path(workout) %>
+  <%= link_to strength.movement, workout_strength_path(workout, strength) %>
+</div>
+  <% end %>
+  <% end %>
+<% end %>

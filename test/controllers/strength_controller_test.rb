@@ -20,7 +20,7 @@ class StrengthControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "should redirect when logged in as different user" do
+  test "should redirect edit when logged in as different user" do
     log_in_as(@user2)
     get edit_workout_strength_path(@workout, @strength)
     assert flash.empty?
@@ -30,6 +30,25 @@ class StrengthControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when logged in as different user" do
     log_in_as(@user2)
     patch workout_strength_path(@workout, @strength), params: {strength: {movement: "Back squat"}}
+    assert flash.empty?
+    assert_redirected_to root_path
+  end
+
+  test "should redirect index page when not logged in" do
+    get strength_path
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show page when not logged in" do
+    get workout_strength_path(@workout, @strength)
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show when logged in as different user" do
+    log_in_as(@user2)
+    get workout_strength_path(@workout, @strength)
     assert flash.empty?
     assert_redirected_to root_path
   end
