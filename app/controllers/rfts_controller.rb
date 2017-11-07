@@ -1,8 +1,8 @@
 class RftsController < ApplicationController
   before_action :logged_in_user
-  before_action :set_workout
+  before_action :set_workout, except: [:index]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_rft, only: [:edit, :update, :destroy]
+  before_action :set_rft, only: [:show, :edit, :update, :destroy]
 
   def new
     @rft = Rft.new
@@ -17,6 +17,13 @@ class RftsController < ApplicationController
       flash[:alert] = "error"
       render "new"
     end
+  end
+
+  def index
+    @workouts = Workout.where(user_id: current_user.id).order("date DESC")
+  end
+
+  def show
   end
 
   def edit

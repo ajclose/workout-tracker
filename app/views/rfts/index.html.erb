@@ -1,0 +1,15 @@
+<% @workouts.each do |workout| %>
+<% if workout.rft %>
+  <% workout.rft.each do |rft| %>
+  <div>
+  <%= link_to workout.date, workout_path(workout) %>
+  <% if rft.name %>
+  <%= link_to "#{rft.name} - #{rft.rounds} Rounds for Time", workout_rft_path(workout, rft) %>
+  <% else %>
+    <%= link_to "#{rft.rounds} Rounds for Time", workout_rft_path(workout, rft) %>
+    <% end %>
+  <%= rft.score %>
+</div>
+  <% end %>
+  <% end %>
+<% end %>

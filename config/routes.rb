@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', as: :logout
   get 'weight-calculator' => 'weight_calculator#index'
   get 'amraps' => 'amraps#index'
+  get 'roundsfortime' => 'rfts#index'
 
   resources :users, except: [:index, :new, :create]
   resources :account_activations, only: [:edit]

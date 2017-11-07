@@ -20,7 +20,7 @@ class RftsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "should redirect when logged in as different user" do
+  test "should redirect edit when logged in as different user" do
     log_in_as(@user2)
     get edit_workout_rft_path(@workout, @rft)
     assert flash.empty?
@@ -30,6 +30,25 @@ class RftsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when logged in as different user" do
     log_in_as(@user2)
     patch workout_rft_path(@workout, @rft), params: {rft: {score: "11"}}
+    assert flash.empty?
+    assert_redirected_to root_path
+  end
+
+  test "should redirect index page when not logged in" do
+    get rfts_path
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show page when not logged in" do
+    get workout_rft_path(@workout, @rft)
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect show when logged in as different user" do
+    log_in_as(@user2)
+    get workout_rft_path(@workout, @rft)
     assert flash.empty?
     assert_redirected_to root_path
   end
