@@ -23,13 +23,15 @@ class AmrapsEditTest < ActionDispatch::IntegrationTest
     time = '11'
     additional_reps = 5
     notes = "This was a great workout!"
-    patch workout_amrap_path(@workout, @amrap), params: {amrap: {time: time, additional_reps: additional_reps, notes: notes}}
+    name = "Fight Gone Bad"
+    patch workout_amrap_path(@workout, @amrap), params: {amrap: {time: time, additional_reps: additional_reps, notes: notes, name: name}}
     assert_not flash.empty?
     assert_redirected_to edit_workout_amrap_path(@workout, @amrap)
     @amrap.reload
     assert_equal time, @amrap.time
     assert_equal additional_reps, @amrap.additional_reps
     assert_equal notes, @amrap.notes
+    assert_equal name, @amrap.name
   end
 
 end
