@@ -41,7 +41,7 @@ class RftsController < ApplicationController
   private
 
   def rft_params
-    params.require(:rft).permit(:rounds, :score, :notes).merge(workout_id: params[:workout_id])
+    params.require(:rft).permit(:rounds, :score, :notes, :name).merge(workout_id: params[:workout_id])
   end
 
   def set_workout

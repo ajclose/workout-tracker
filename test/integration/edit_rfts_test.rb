@@ -22,12 +22,14 @@ class RftsEditTest < ActionDispatch::IntegrationTest
     assert_template 'rfts/edit'
     rounds = 11
     notes = "These are the updated notes!"
-    patch workout_rft_path(@workout, @rft), params: {rft: {rounds: rounds, notes: notes}}
+    name = "Fran"
+    patch workout_rft_path(@workout, @rft), params: {rft: {rounds: rounds, notes: notes, name: name}}
     assert_not flash.empty?
     assert_redirected_to edit_workout_rft_path(@workout, @rft)
     @rft.reload
     assert_equal rounds, @rft.rounds
     assert_equal notes, @rft.notes
+    assert_equal name, @rft.name
   end
 
 end
