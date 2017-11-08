@@ -10,15 +10,7 @@
 
 .container {
   margin-bottom: 100px;
-}
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-weight: bold;
-  text-align: center;
-  background: white;
-  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }

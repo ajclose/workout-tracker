@@ -8,7 +8,10 @@
 .barbell-container {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 10px;
+  max-width: 680px;
+  width: 99vw;
+  align-self: center;
 }
 
 .bar {
@@ -17,22 +20,46 @@
   margin-top: 20px;
 }
 
+.left {
+  width: 30%;
+  span {
+    transform: rotate(90deg);
+  }
+}
+
+.right {
+  width: 30%;
+  span {
+    transform: rotate(-90deg);
+  }
+}
+
+.center {
+  width: 40%;
+}
+
 .plate-45 {
   border: 1px solid gray;
   height: 125px;
-  width: 30px;
+  max-width: 30px;
+  min-width: 1em;
+  width: 20%;
   border-radius: 5px;
   background-color: black;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  align-content: center;
+  padding: .1em;
 }
 
 .plate-25 {
   border: 1px solid gray;
   height: 125px;
-  width: 25px;
+  max-width: 25px;
+  min-width: 1em;
+  width: 20%;
   border-radius: 5px;
   background-color: black;
   color: white;
@@ -44,7 +71,9 @@
 .plate-15 {
   border: 1px solid gray;
   height: 125px;
-  width: 25px;
+  max-width: 25px;
+  min-width: 1em;
+  width: 17%;
   border-radius: 5px;
   background-color: black;
   color: white;
@@ -56,7 +85,9 @@
 .plate-10 {
   border: 1px solid gray;
   height: 125px;
-  width: 25px;
+  max-width: 25px;
+  min-width: 1em;
+  width: 15%;
   border-radius: 5px;
   background-color: black;
   color: white;
@@ -68,7 +99,9 @@
 .plate-5 {
   border: 1px solid gray;
   height: 75px;
-  width: 15px;
+  max-width: 15px;
+  min-width: 1em;
+  width: 10%;
   border-radius: 3px;
   background-color: black;
   color: white;
@@ -80,7 +113,8 @@
 .plate-2-5 {
   border: 1px solid gray;
   height: 75px;
-  width: 15px;
+  max-width: 15px;
+  min-width: 1em;
   border-radius: 3px;
   background-color: black;
   color: white;
@@ -93,7 +127,7 @@
 
 #barLeft {
   height: 30px;
-  width: 150px;
+  width: 100%;
   border: solid;
   display: flex;
   justify-content: flex-end;
@@ -101,7 +135,7 @@
 }
 #barRight {
   height: 30px;
-  width: 150px;
+  width: 100%;
   border: solid;
   display: flex;
   justify-content: flex-start;
@@ -110,105 +144,32 @@
 
 #barCenter {
   height: 20px;
-  width: 350px;
+  width: 92%;
   border: solid;
 }
 
 .barStop {
   border: solid;
   height: 40px;
-  width: 15px;
+  width: 4%;
 }
+
+// .plateRack {
+//   display: flex;
+//   width: 50%;
+//   justify-content: space-around;
+//   align-items: flex-end;
+// }
 
 .plateRack {
   display: flex;
-  width: 50%;
   justify-content: space-around;
-  align-items: flex-end;
-}
-
-.horizontal-plate-45 {
-  border: 1px solid gray;
-  height: 30px;
-  width: 125px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.horizontal-plate-25 {
-  border: 1px solid gray;
-  height: 25px;
-  width: 125px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.horizontal-plate-15 {
-  border: 1px solid gray;
-  height: 25px;
-  width: 125px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.horizontal-plate-10 {
-  border: 1px solid gray;
-  height: 25px;
-  width: 125px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.horizontal-plate-5 {
-  border: 1px solid gray;
-  height: 15px;
-  width: 75px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.horizontal-plate-2-5 {
-  border: 1px solid gray;
-  height: 15px;
-  width: 65px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.plateRack {
-  display: flex;
-  justify-content: center;
   width: 100%;
-}
-
-.stack {
-  display: flex;
-  flex-direction: column;
-  margin: 0 10px;
+  padding: 5px;
+  align-items: center;
+  span {
+    transform: rotate(90deg);
+  }
 }
 
 form.plates {
@@ -217,6 +178,8 @@ form.plates {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-bottom: 1em;
+  width: 100%;
 }
 
 form.weight {
@@ -230,15 +193,17 @@ form.weight {
 .results {
   text-align: center;
   font-size: 1.5em;
-  padding: 1em;
-  height: 10vh;
+  margin-bottom: 10px;
 }
 
 .weight-header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .total-weight-input {
@@ -250,10 +215,32 @@ form.weight {
   }
 }
 
-.form {
-  height: 30vh;
-}
-
 .error {
   color: red;
+}
+
+.weight-selections {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  label {
+    flex-basis: 10%;
+    font-size: 1.2em;
+  }
+}
+
+.barweight-selections {
+  label {
+    font-size: 1.2em;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .weight-selections {
+    label {
+      flex-basis: 30%;
+    }
+  }
 }

@@ -3,37 +3,48 @@ function plateForm() {
   <form class="plates" action="/weight-calculator" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="vQcYvxt5lo3M5tDNiIB5K8csY4FgmrCu7FmFsh1Ntj+bjaYGfU0ccQ6z1q8ZQqSCgCMvIpF9jDoJB/7gEip54g==">
 
   <p>Please select the weights you have available to you</p>
-  <div class="">
-  <input type="checkbox" name="weight" id="weight" value="45" checked="checked">
-  <label for="weight">45 lbs</label>
+  <div class="weight-selections">
 
-  <input type="checkbox" name="weight" id="weight" value="25" checked="checked">
-  <label for="weight">25 lbs</label>
+    <label for="weight45">
+  <input type="checkbox" name="weight" id="weight45" value="45" checked="checked">
+    45 lbs</label>
 
-  <input type="checkbox" name="weight" id="weight" value="15" checked="checked">
-  <label for="weight">15 lbs</label>
+    <label for="weight25">
+  <input type="checkbox" name="weight" id="weight25" value="25" checked="checked">
+    25 lbs</label>
 
-  <input type="checkbox" name="weight" id="weight" value="10" checked="checked">
-  <label for="weight">10 lbs</label>
+    <label for="weight15">
+  <input type="checkbox" name="weight" id="weight15" value="15" checked="checked">
+    15 lbs</label>
 
-  <input type="checkbox" name="weight" id="weight" value="5" checked="checked">
-  <label for="weight">5 lbs</label>
+    <label for="weight10">
+  <input type="checkbox" name="weight" id="weight10" value="10" checked="checked">
+    10 lbs</label>
 
-  <input type="checkbox" name="weight" id="weight" value="2.5" checked="checked">
-  <label for="weight">2.5 lbs</label>
+    <label for="weight5">
+  <input type="checkbox" name="weight" id="weight5" value="5" checked="checked">
+    5 lbs</label>
+
+    <label for="weight2-5">
+  <input type="checkbox" name="weight" id="weight2-5" value="2.5" checked="checked">
+    2.5 lbs</label>
+
   </div>
 
-  <div class="">
+  <div class="barweight-selections">
   <p>Select your bar weight:</p>
 
+  <label for="barWeight_15">
   <input type="radio" name="barWeight" id="barWeight_15" value="15">
-  <label for="barWeight">15 lbs</label>
+  15 lbs</label>
 
+  <label for="barWeight_35">
   <input type="radio" name="barWeight" id="barWeight_35" value="35">
-  <label for="barWeight">35 lbs</label>
+    35 lbs</label>
 
+  <label for="barWeight_45">
   <input type="radio" name="barWeight" id="barWeight_45" value="45" checked="checked">
-  <label for="barWeight">45 lbs</label>
+    45 lbs</label>
   <div>
 
   <div class="total-weight-input">
@@ -51,17 +62,20 @@ function weightForm() {
   return `
   <form class="weight" action="/weight-calculator" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="vQcYvxt5lo3M5tDNiIB5K8csY4FgmrCu7FmFsh1Ntj+bjaYGfU0ccQ6z1q8ZQqSCgCMvIpF9jDoJB/7gEip54g==">
 
-  <div class="">
+  <div class="barweight-selections">
   <h4>Select your bar weight:</h4>
 
+  <label for="barWeight_15">
   <input type="radio" name="barWeight" id="barWeight_15" value="15">
-  <label for="barWeight">15 lbs</label>
+  15 lbs</label>
 
+  <label for="barWeight_35">
   <input type="radio" name="barWeight" id="barWeight_35" value="35">
-  <label for="barWeight">35 lbs</label>
+    35 lbs</label>
 
+  <label for="barWeight_45">
   <input type="radio" name="barWeight" id="barWeight_45" value="45" checked="checked">
-  <label for="barWeight">45 lbs</label>
+    45 lbs</label>
   <div>
   </form>
 
@@ -71,52 +85,13 @@ function weightForm() {
   Reset
   </div>
   <div class="plateRack">
-  <div class="stack">
-    <div class="weight horizontal-plate-45">45</div>
-    <div class="weight horizontal-plate-45">45</div>
-    <div class="weight horizontal-plate-45">45</div>
-    <div class="weight horizontal-plate-45">45</div>
-    <div class="weight horizontal-plate-45">45</div>
-  </div>
-    <div class="stack">
-      <div class="weight horizontal-plate-25">25</div>
-      <div class="weight horizontal-plate-25">25</div>
-      <div class="weight horizontal-plate-25">25</div>
-      <div class="weight horizontal-plate-25">25</div>
-      <div class="weight horizontal-plate-25">25</div>
-    </div>
 
-    <div class="stack">
-      <div class="weight horizontal-plate-15">15</div>
-      <div class="weight horizontal-plate-15">15</div>
-      <div class="weight horizontal-plate-15">15</div>
-      <div class="weight horizontal-plate-15">15</div>
-      <div class="weight horizontal-plate-15">15</div>
-    </div>
-
-    <div class="stack">
-      <div class="weight horizontal-plate-10">10</div>
-      <div class="weight horizontal-plate-10">10</div>
-      <div class="weight horizontal-plate-10">10</div>
-      <div class="weight horizontal-plate-10">10</div>
-      <div class="weight horizontal-plate-10">10</div>
-    </div>
-
-    <div class="stack">
-      <div class="weight horizontal-plate-5">5</div>
-      <div class="weight horizontal-plate-5">5</div>
-      <div class="weight horizontal-plate-5">5</div>
-      <div class="weight horizontal-plate-5">5</div>
-      <div class="weight horizontal-plate-5">5</div>
-    </div>
-
-    <div class="stack">
-      <div class="weight horizontal-plate-2-5">2.5</div>
-      <div class="weight horizontal-plate-2-5">2.5</div>
-      <div class="weight horizontal-plate-2-5">2.5</div>
-      <div class="weight horizontal-plate-2-5">2.5</div>
-      <div class="weight horizontal-plate-2-5">2.5</div>
-    </div>
+    <div class="weight plate-45"><span>45</span></div>
+    <div class="weight plate-25"><span>25</span></div>
+    <div class="weight plate-15"><span>15</span></div>
+    <div class="weight plate-10"><span>10</span></div>
+    <div class="weight plate-5"><span>5</span></div>
+    <div class="weight plate-2-5"><span>2.5</span></div>
 
   </div>
   </div>
@@ -181,13 +156,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       const weight = weights[i]
       if (weight == 2.5) {
         const html = `
-        <div class="barPlate plate-2-5">2.5</div>
+        <div class="barPlate plate-2-5"><span>2.5</span></div>
         `
         barLeft.insertAdjacentHTML("afterbegin", html)
         barRight.insertAdjacentHTML("beforeend", html)
       } else {
         const html = `
-        <div class="barPlate plate-${weight}">${weight}</div>
+        <div class="barPlate plate-${weight}"><span>${weight}</span></div>
         `
         barLeft.insertAdjacentHTML("afterbegin", html)
         barRight.insertAdjacentHTML("beforeend", html)
@@ -247,13 +222,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for (var i = 0; i < plates[weight]/2; i++) {
               if (weight == 2.5) {
                 const html = `
-                <div class="plate-2-5">2.5</div>
+                <div class="barPlate plate-2-5"><span>2.5</span></div>
                 `
                 barLeft.insertAdjacentHTML("afterbegin", html)
                 barRight.insertAdjacentHTML("beforeend", html)
               } else {
                 const html = `
-                <div class="plate-${weight}">${weight}</div>
+                <div class="barPlate plate-${weight}"><span>${weight}</span></div>
                 `
                 barLeft.insertAdjacentHTML("beforeend", html)
                 barRight.insertAdjacentHTML("afterbegin", html)
