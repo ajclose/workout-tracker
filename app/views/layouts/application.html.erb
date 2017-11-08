@@ -10,53 +10,55 @@
 
   <body>
     <div class="container <%= content_for(:body_class) if content_for?(:body_class)%>">
-
-        <nav class="navbar navbar-default">
-            <h1><%= link_to "Crossfit Tracker", root_path, class: "navbar-brand" %></h1>
-            <ul class="nav nav-pills">
-              <li role="presentation" class="nav-item">
-                <%= link_to "Barbell Math", weight_calculator_path, class: "nav-link" %>
-              </li>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "WODTracker", root_path, class: "navbar-brand" %>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Barbell Math", weight_calculator_path, class: "nav-link" %></li>
               <% if logged_in? %>
-              <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  My Workouts <span class="caret"></span>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Workouts
+                  <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li role="presentation" class="nav-item">
-                    <%= link_to "All", root_path %>
-                  </li>
-                  <li role="presentation" class="nav-item">
-                    <%= link_to "AMRAP", amraps_path %>
-                  </li>
-                  <li role="presentation" class="nav-item">
-                    <%= link_to "Rounds for Time", roundsfortime_path %>
-                  </li>
-                  <li role="presentation" class="nav-item">
-                    <%= link_to "Strength", strength_path %>
-                  </li>
+                  <li><%= link_to "All", root_path %></li>
+                  <li><%= link_to "AMRAP", amraps_path %></li>
+                  <li><%= link_to "Rounds for Time", roundsfortime_path %></li>
+                  <li><%= link_to "Strength", strength_path %></li>
                 </ul>
-              <li role="presentation" class="nav-item">
-                <%= link_to "New Workout", new_workout_path, class: "nav-link" %>
               </li>
-              <li role="presentation" class="nav-item">
-                <%= link_to "Account", edit_user_path(current_user), class: "nav-link" %>
-              </li>
-              <li role="presentation" class="nav-item">
-                <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
-              </li>
-              <% else %>
-              <li role="presentation" class="nav-item">
-                <%= link_to "Login", login_path, class: "nav-link" %>
-              </li>
-              <% end %>
+              <li><%= link_to "New Workout", new_workout_path, class: "nav-link" %></li>
+              <li role="separator" class="divider"></li>
             </ul>
-        </nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Account", edit_user_path(current_user), class: "nav-link" %></li>
+              <li><%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %></li>
+            </ul>
+          <% else %>
+            <li><%= link_to "Login", login_path, class: "nav-link" %></li>
+            <% end %>
+          </div>
+        </div>
+      </nav>
 
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+      <footer>
+        <p>Copyright</p>
+        <p>Alex Close</p>
+        <p>2017</p>
+      </footer>
     </div>
   </body>
 </html>
