@@ -2,9 +2,14 @@
 @import "bootstrap";
 @import "users";
 @import "weight_calculator";
+@import "workouts";
 
-*{
+* {
   box-sizing: border-box;
+}
+
+.container {
+  margin-bottom: 100px;
 }
 
 footer {
@@ -14,4 +19,6 @@ footer {
   width: 100%;
   font-weight: bold;
   text-align: center;
+  background: white;
+  padding-top: 1em;
 }

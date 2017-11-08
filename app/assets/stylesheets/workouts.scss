@@ -1,3 +1,18 @@
-// Place all the styles related to the workouts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.workouts {
+  text-align: center;
+}
+
+.workout {
+  font-size: 1.5em;
+  margin: 1em;
+}
+
+.workout-details {
+  display: flex;
+  justify-content: center;
+}
+.workout-image {
+  height: 1.5em;
+  width: 1.5em;
+  margin: .5em;
+}

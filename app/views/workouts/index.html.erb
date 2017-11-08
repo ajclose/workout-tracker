@@ -1,9 +1,20 @@
-<h3>Your workouts</h3>
 
 <div class="workouts">
+  <h2>Your workouts</h2>
   <% @workouts.each do |workout| %>
     <div class="workout">
-      <%= link_to workout.date, workout_path(workout) %>
+      <%= link_to workout.date.strftime("%A, %B %d, %Y"), workout_path(workout) %>
+      <div class="workout-details">
+      <% if workout.amrap.exists? %>
+      <%= image_tag "rounds.png", class: "workout-image"%>
+      <% end %>
+      <% if workout.rft.exists? %>
+      <%= image_tag "timer.png", class: "workout-image"%>
+      <% end %>
+      <% if workout.strength.exists? %>
+      <%= image_tag "barbell.png", class: "workout-image"%>
+      <% end %>
+    </div>
     </div>
   <% end %>
 </div>
