@@ -1,3 +1,6 @@
-<h3><%= link_to 'Strength', workout_path(@workout) %> - <%= @workout.date %></h3>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
 
+<h4>Update <%= link_to 'Strength Movement', workout_strength_path(@workout, @strength) %></h4>
+
+<% provide(:button_text, 'Update Movement') %>
 <%= render "form" %>
