@@ -1,10 +1,17 @@
-<% @workouts.each do |workout| %>
-<% if workout.strength %>
+<div class="workouts">
+<h2>Strength</h2>
+  <% @workouts.each do |workout| %>
+  <% if workout.strength %>
   <% workout.strength.each do |strength| %>
-  <div>
-  <%= link_to workout.date, workout_path(workout) %>
-  <%= link_to strength.movement, workout_strength_path(workout, strength) %>
+  <div class="workout">
+    <%= link_to workout.date.strftime("%A, %B %d, %Y"), workout_path(workout) %>
+    <div>
+      <%= link_to strength.movement, workout_strength_path(workout, strength) %>
+      <p class="rft-score"><%= pluralize(strength.sets, "Set") %> of <%= strength.reps %></p>
+
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
 </div>
-  <% end %>
-  <% end %>
-<% end %>
