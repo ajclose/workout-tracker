@@ -3,17 +3,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
-  # def index
-  #   redirect_to root_path
-  # end
-
   def new
     @user = User.new
   end
-
-  # def show
-  #   redirect_to root_path
-  # end
 
   def create
     @user = User.new(user_params)
