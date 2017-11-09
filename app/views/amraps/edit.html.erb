@@ -1,8 +1,10 @@
-<h3><%= link_to 'AMRAP', workout_path(@workout) %> - <%= @workout.date %></h3>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
+
+<h3>Update <%= link_to 'AMRAP', workout_path(@workout) %></h3>
 
 <%= render "form" %>
 
-<h4><%= link_to 'ADD MOVEMENT', new_amrap_amrapmovement_path(@amrap) %></h4>
+<h4><%= link_to 'Add Movement', new_amrap_amrapmovement_path(@amrap) %></h4>
 
 <% @amrap.amrapmovements.each do |movement| %>
 <p>RX: <%= movement.rx_reps %> <%= movement.rx_movement %> <%= movement.rx_weight %> <%= movement.rx_unit %></p>
