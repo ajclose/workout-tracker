@@ -1,15 +1,23 @@
-<% @workouts.each do |workout| %>
-<% if workout.amrap %>
+<div class="workouts">
+<h2>AMRAPS</h2>
+  <% @workouts.each do |workout| %>
+  <% if workout.amrap %>
   <% workout.amrap.each do |amrap| %>
-  <div>
-  <%= link_to workout.date, workout_path(workout) %>
-  <% if amrap.name %>
-  <%= link_to "#{amrap.name} - #{amrap.time} AMRAP", workout_amrap_path(workout, amrap) %>
-  <% else %>
-    <%= link_to "#{amrap.time} AMRAP", workout_amrap_path(workout, amrap) %>
-    <% end %>
-  <%= amrap.score %>
+  <div class="workout">
+    <%= link_to workout.date.strftime("%A, %B %d, %Y"), workout_path(workout) %>
+    <div>
+        <% if amrap.name.present? %>
+        <%= link_to "#{amrap.name} - #{amrap.time} Minute AMRAP", workout_amrap_path(workout, amrap) %>
+        <% else %>
+        <%= link_to "#{amrap.time} Minute AMRAP", workout_amrap_path(workout, amrap) %>
+        <% end %>
+      <p class="amrap-score">Score:
+        <%= amrap.score %>
+        rounds <%= amrap.additional_reps %> reps</p>
+
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
 </div>
-  <% end %>
-  <% end %>
-<% end %>
