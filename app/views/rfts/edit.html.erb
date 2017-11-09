@@ -1,11 +1,18 @@
-<h3><%= link_to 'RFT', workout_path(@workout) %> - <%= @workout.date %></h3>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
 
+<h4>Update <%= link_to 'Rounds for Time', workout_rft_path(@workout, @rft) %></h4>
+
+<% provide(:button_text, 'Update RFT') %>
 <%= render "form" %>
 
-<h4><%= link_to 'ADD MOVEMENT', new_rft_rftmovement_path(@rft) %></h4>
+<h4><%= link_to 'Add Movement', new_rft_rftmovement_path(@rft) %></h4>
 
 <% @rft.rftmovements.each do |movement| %>
+<% if movement.rx_movement.present? %>
 <p>RX: <%= movement.rx_reps %> <%= movement.rx_movement %> <%= movement.rx_weight %> <%= movement.rx_unit %></p>
+<% end %>
+<% if movement.scaled_movement.present? %>
 <p>Scaled: <%= movement.scaled_reps %> <%= movement.scaled_movement %> <%= movement.scaled_weight %> <%= movement.scaled_unit %></p>
+<% end %>
 <%= link_to "Edit", edit_rft_rftmovement_path(@rft, movement) %>
 <% end %>
