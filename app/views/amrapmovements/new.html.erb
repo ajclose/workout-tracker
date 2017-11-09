@@ -1,1 +1,7 @@
+<h3><%= link_to @amrap.workout.date.strftime("%A, %B %d, %Y"), workout_path(@amrap.workout) %></h3>
+
+<h4><%= link_to "#{@amrap.time} Minute AMRAP", workout_amrap_path(@amrap.workout, @amrap) %></h4>
+
+<%= provide(:button_text, "Add Movement" ) %>
+
 <%= render "form" %>

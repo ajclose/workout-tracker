@@ -14,7 +14,6 @@ class AmrapmovementsController < ApplicationController
       flash[:success] = "Movement added"
       redirect_to edit_workout_amrap_path(@amrap.workout_id, @amrap)
     else
-      flash[:alert] = "error"
       render "new"
     end
   end

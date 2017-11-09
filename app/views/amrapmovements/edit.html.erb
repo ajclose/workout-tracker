@@ -1,2 +1,7 @@
+<h3><%= link_to @amrap.workout.date.strftime("%A, %B %d, %Y"), workout_path(@amrap.workout) %></h3>
+
+<h4><%= link_to "#{@amrap.time} Minute AMRAP", workout_amrap_path(@amrap.workout, @amrap) %></h4>
+
+<%= provide(:button_text, "Update Movement") %>
+
 <%= render "form" %>
-<%= link_to "Delete Movement", amrap_amrapmovement_path(@amrap, @amrapmovement), method: :delete, data: {confirm: "Are you sure you want to delete this workout?"} %>
