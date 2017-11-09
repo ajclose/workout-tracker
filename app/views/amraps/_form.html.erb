@@ -11,21 +11,29 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, placeholder: "Enter workout name (if applicable)", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :time, class: "control-label" %>
+    <%= f.text_field :time, placeholder: "Enter time to complete workout", class: "form-control" %>
+  </div>
+<div class="form-group">
+  <%= f.label :score, class: "control-label" %>
+  <%= f.number_field :score, placeholder: "Enter number of rounds completed", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :additional_reps, class: "control-label" %>
+  <%= f.number_field :additional_reps, placeholder: "Enter any additional reps completed", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :notes, class: "control-label" %>
+  <%= f.text_area :notes, placeholder: "Enter notes about workout", class: "form-control" %>
+</div>
 
-<%= f.label :time %>
-<%= f.text_field :time %>
-
-<%= f.label :score %>
-<%= f.number_field :score %>
-
-<%= f.label :additional_reps %>
-<%= f.number_field :additional_reps %>
-
-<%= f.label :notes %>
-<%= f.text_area :notes %>
-
-<%= f.submit %>
+<div class="form-group">
+<%= f.submit "Create AMRAP", class: "btn btn-success" %>
+</div>
 
 <% end %>
