@@ -1,31 +1,59 @@
 <%= form_for([@rft, @rftmovement]) do |f| %>
-<div class="row">
-<%= f.label :rx_reps %>
-<%= f.number_field :rx_reps %>
-
-<%= f.label :rx_movement %>
-<%= f.text_field :rx_movement %>
-
-<%= f.label :rx_weight %>
-<%= f.number_field :rx_weight %>
-
-<%= f.label :rx_unit %>
-<%= f.text_field :rx_unit %>
+<% if @rftmovement.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      There were <%= pluralize(@rftmovement.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% @rftmovement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="rx-movement-inputs col-md-6 col-xs-6">
+  <h4>RX</h4>
+  <div class="form-group">
+    <%= f.label :rx_reps, "Reps", class: "control-label" %>
+    <%= f.number_field :rx_reps, placeholder: "Enter reps", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rx_movement, "Movement", class: "control-label" %>
+    <%= f.text_field :rx_movement, placeholder: "Enter Movement", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rx_weight, "Weight", class: "control-label" %>
+    <%= f.number_field :rx_weight, placeholder: "Enter Weight", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rx_unit, "Units", class: "control-label" %>
+    <%= f.text_field :rx_unit, placeholder: "Enter Units", class: "form-control" %>
+  </div>
 </div>
 
-<div class="row">
-<%= f.label :scaled_reps %>
-<%= f.number_field :scaled_reps %>
-
-<%= f.label :scaled_movement %>
-<%= f.text_field :scaled_movement %>
-
-<%= f.label :scaled_weight %>
-<%= f.number_field :scaled_weight %>
-
-<%= f.label :scaled_unit %>
-<%= f.text_field :scaled_unit %>
+<div class="scaled-movement-inputs col-md-6 col-xs-6">
+  <h4>Scaled</h4>
+  <div class="form-group">
+    <%= f.label :scaled_reps, "Reps", class: "control-label" %>
+    <%= f.number_field :scaled_reps, placeholder: "Enter reps", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :scaled_movement, "Movement", class: "control-label" %>
+    <%= f.text_field :scaled_movement, placeholder: "Enter Movement", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :scaled_weight, "Weight", class: "control-label" %>
+    <%= f.number_field :scaled_weight, placeholder: "Enter Weight", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :scaled_unit, "Units", class: "control-label" %>
+    <%= f.text_field :scaled_unit, placeholder: "Enter Units", class: "form-control" %>
+  </div>
 </div>
 
-<%= f.submit "Add movement"%>
+
+  <%= f.submit yield(:button_text), class: "btn btn-success"%>
+  <% if controller_name == 'rftmovements' && action_name == 'edit' %>
+  <%= link_to "Delete Movement", rft_rftmovement_path(@rft, @rftmovement), method: :delete, data: {confirm: "Are you sure you want to delete this workout?"}, class: "btn btn-danger" %>
+  <% end %>
 <% end %>

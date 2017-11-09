@@ -1,10 +1,7 @@
+<h3><%= link_to @rft.workout.date.strftime("%A, %B %d, %Y"), workout_path(@rft.workout) %></h3>
+
+<h4><%= link_to "#{@rft.rounds} Rounds for Time", workout_rft_path(@rft.workout, @rft) %></h4>
+
+<%= provide(:button_text, "Update Movement") %>
+
 <%= render "form" %>
-<%= link_to "Delete Movement", rft_rftmovement_path(@rft, @rftmovement), method: :delete, data: {confirm: "Are you sure you want to delete this workout?"} %>
-
-<h4><%= link_to 'ADD MOVEMENT', new_rft_rftmovement_path(@rft) %></h4>
-
-<% @rft.rftmovements.each do |movement| %>
-<p>RX: <%= movement.rx_reps %> <%= movement.rx_movement %> <%= movement.rx_weight %> <%= movement.rx_unit %></p>
-<p>Scaled: <%= movement.scaled_reps %> <%= movement.scaled_movement %> <%= movement.scaled_weight %> <%= movement.scaled_unit %></p>
-<%= link_to "Edit", edit_rft_rftmovement_path(@rft, movement) %>
-<% end %>

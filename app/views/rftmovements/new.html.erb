@@ -1,1 +1,7 @@
+<h3><%= link_to @rft.workout.date.strftime("%A, %B %d, %Y"), workout_path(@rft.workout) %></h3>
+
+<h4><%= link_to "#{@rft.rounds} Rounds for Time", workout_rft_path(@rft.workout, @rft) %></h4>
+
+<%= provide(:button_text, "Add Movement" ) %>
+
 <%= render "form" %>
