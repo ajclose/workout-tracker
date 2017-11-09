@@ -1,59 +1,40 @@
-<h3><%= @workout.date %></h3>
+<h3><%= @workout.date.strftime("%A, %B %d, %Y") %></h3>
 <% if @workout.user_id === current_user.id %>
 <%= link_to 'Edit Workout', edit_workout_path(@workout) %>
 <% end %>
 <% if @workout.amrap %>
 <% @workout.amrap.each do |amrap| %>
-<h3><%= link_to "#{amrap.time} minute AMRAP", workout_amrap_path(@workout, amrap) %>
+<h3>
+  <% if amrap.name.present? %>
+  <%= link_to "#{amrap.name} - #{amrap.time} Minute AMRAP", workout_amrap_path(@workout, amrap) %>
+  <% else %>
+  <%= link_to "#{amrap.time} Minute AMRAP", workout_amrap_path(@workout, amrap) %>
+  <% end %>
 </h3>
 <p>Score:
   <%= amrap.score %>
   rounds <%= amrap.additional_reps %> reps</p>
-<% amrap.amrapmovements.each do |movement| %>
-<p>RX:
-  <%= movement.rx_reps %>
-  <%= movement.rx_movement %>
-  <%= movement.rx_weight %>
-  <%= movement.rx_unit %></p>
-<p>Scaled:
-  <%= movement.scaled_reps %>
-  <%= movement.scaled_movement %>
-  <%= movement.scaled_weight %>
-  <%= movement.scaled_unit %></p>
-<% end %>
-<h4>Notes:</h4>
-<p><%= amrap.notes %></p>
 <% end %>
 <% end %>
 
 <% if @workout.rft %>
 <% @workout.rft.each do |rft| %>
-<h3><%= rft.rounds %>
-  Rounds for Time</h3>
+<h3>
+  <% if rft.name.present? %>
+  <%= link_to "#{rft.name} - #{pluralize(rft.rounds, 'Round')} for Time", workout_rft_path(@workout, rft) %>
+  <% else %>
+  <%= link_to "#{pluralize(rft.rounds, 'Round')} for Time", workout_rft_path(@workout, rft) %>
+  <% end %>
+</h3>
 <p>Score:
   <%= rft.score %>
   </p>
-<% rft.rftmovements.each do |movement| %>
-<p>RX:
-  <%= movement.rx_reps %>
-  <%= movement.rx_movement %>
-  <%= movement.rx_weight %>
-  <%= movement.rx_unit %></p>
-<p>Scaled:
-  <%= movement.scaled_reps %>
-  <%= movement.scaled_movement %>
-  <%= movement.scaled_weight %>
-  <%= movement.scaled_unit %></p>
-<% end %>
-<h4>Notes:</h4>
-<p><%= rft.notes %></p>
 <% end %>
 <% end %>
 
 <% if @workout.strength %>
 <% @workout.strength.each do |strength| %>
-<h3><%= strength.sets %> X <%= strength.reps %> <%= strength.movement %> <%= strength.weight %> lbs </h3>
-<h4>Notes:</h4>
-<p><%= strength.notes %></p>
+<h3><%= link_to strength.movement, workout_strength_path(@workout, strength) %></h3>
+<p><%= "#{pluralize(strength.sets, 'Set')} of #{strength.reps}" %></p>
 <% end %>
 <% end %>
