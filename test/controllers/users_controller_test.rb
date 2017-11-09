@@ -19,12 +19,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "should redirect show when not logged in" do
-    get user_path(@user)
-    assert_not flash.empty?
-    assert_redirected_to login_url
-  end
-
   test "should redirect when logged in as different user" do
     log_in_as(@user2)
     get edit_user_path(@user)

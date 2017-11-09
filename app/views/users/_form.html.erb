@@ -1,22 +1,22 @@
 <%= form_for @user, url: yield(:action) do |f| %>
 
 <%= render 'shared/error_messages' %>
-<div class="">
-  <%= f.label :email %>
+<div class="form-group">
+  <%= f.label :email, class: "control-label" %>
   <%= f.email_field :email, class: 'form-control' %>
 </div>
 
-<div class="">
-  <%= f.label :password %>
+<div class="form-group">
+  <%= f.label :password, class: "control-label" %>
   <%= f.password_field :password, class: 'form-control' %>
 </div>
 
-<div class="">
-  <%= f.label :password_confirmation %>
+<div class="form-group">
+  <%= f.label :password_confirmation, class: "control-label" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 </div>
 
-<div class="">
+<div class="form-group">
   <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
 </div>
 
