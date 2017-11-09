@@ -1,20 +1,38 @@
-<h3><%= link_to @amrap.workout.date, workout_path(@amrap.workout) %></h3>
-
-<h4><%= @amrap.name %> - <%= @amrap.time %> minute AMRAP</h4>
-<p>Score: <%= @amrap.score %> rounds <%= @amrap.additional_reps %> reps</p>
-
-<% @amrap.amrapmovements.each do |movement| %>
-<p>RX:
-  <%= movement.rx_reps %>
-  <%= movement.rx_movement %>
-  <%= movement.rx_weight %>
-  <%= movement.rx_unit %></p>
-<p>Scaled:
-  <%= movement.scaled_reps %>
-  <%= movement.scaled_movement %>
-  <%= movement.scaled_weight %>
-  <%= movement.scaled_unit %></p>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
+<h4>
+<% if @amrap.name.present? %>
+<%= @amrap.name %> -
 <% end %>
+<%= @amrap.time %> minute AMRAP
+</h4>
+
+<h5>Score: <%= @amrap.score %> rounds
+  <% if @amrap.additional_reps.present? %>
+  <%= @amrap.additional_reps %> reps
+  <% end %>
+</h5>
+<%= link_to "Edit", edit_workout_amrap_path(@workout, @amrap) %>
+<ul class="list-group">
+  <% @amrap.amrapmovements.each do |movement| %>
+  <li class="list-group-item">
+    <% if movement.rx_movement.present? %>
+    <p>RX:
+      <%= movement.rx_reps %>
+      <%= movement.rx_movement %>
+      <%= movement.rx_weight %>
+      <%= movement.rx_unit %></p>
+      <% end %>
+      <% if movement.scaled_movement.present? %>
+      <p>Scaled:
+        <%= movement.scaled_reps %>
+        <%= movement.scaled_movement %>
+        <%= movement.scaled_weight %>
+        <%= movement.scaled_unit %></p>
+        <% end %>
+      </li>
+      <% end %>
+
+</ul>
 
 <h4>Notes:</h4>
 <p><%= @amrap.notes %></p>

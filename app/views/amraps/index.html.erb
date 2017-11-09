@@ -12,8 +12,11 @@
         <%= link_to "#{amrap.time} Minute AMRAP", workout_amrap_path(workout, amrap) %>
         <% end %>
       <p class="amrap-score">Score:
-        <%= amrap.score %>
-        rounds <%= amrap.additional_reps %> reps</p>
+        <%= amrap.score %> rounds
+        <% if amrap.additional_reps.present? %>
+        <%= amrap.additional_reps %> reps
+        <% end %>
+      </p>
 
     </div>
   </div>
