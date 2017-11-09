@@ -1,20 +1,34 @@
-<h3><%= link_to @rft.workout.date, workout_path(@rft.workout) %></h3>
-
-<h4><%= @rft.name %> - <%= @rft.rounds %> Rounds for Time</h4>
-<p>Score: <%= @rft.score %></p>
-
-<% @rft.rftmovements.each do |movement| %>
-<p>RX:
-  <%= movement.rx_reps %>
-  <%= movement.rx_movement %>
-  <%= movement.rx_weight %>
-  <%= movement.rx_unit %></p>
-<p>Scaled:
-  <%= movement.scaled_reps %>
-  <%= movement.scaled_movement %>
-  <%= movement.scaled_weight %>
-  <%= movement.scaled_unit %></p>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
+<h4>
+<% if @rft.name.present? %>
+<%= @rft.name %> -
 <% end %>
+<%= @rft.rounds %> Rounds for Time
+</h4>
+
+<h5>Score: <%= @rft.score %></h5>
+<%= link_to "Edit", edit_workout_rft_path(@workout, @rft) %>
+<ul class="list-group">
+  <% @rft.rftmovements.each do |movement| %>
+  <li class="list-group-item">
+    <% if movement.rx_movement.present? %>
+    <p>RX:
+      <%= movement.rx_reps %>
+      <%= movement.rx_movement %>
+      <%= movement.rx_weight %>
+      <%= movement.rx_unit %></p>
+      <% end %>
+      <% if movement.scaled_movement.present? %>
+      <p>Scaled:
+        <%= movement.scaled_reps %>
+        <%= movement.scaled_movement %>
+        <%= movement.scaled_weight %>
+        <%= movement.scaled_unit %></p>
+        <% end %>
+      </li>
+      <% end %>
+
+</ul>
 
 <h4>Notes:</h4>
 <p><%= @rft.notes %></p>
