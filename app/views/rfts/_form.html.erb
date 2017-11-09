@@ -11,18 +11,26 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
 
-<%= f.label :rounds %>
-<%= f.number_field :rounds %>
+<div class="form-group">
+  <%= f.label :name, class: "control-label" %>
+  <%= f.text_field :name, placeholder: "Enter workout name (if applicable)", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :rounds, class: "control-label" %>
+  <%= f.text_field :rounds, placeholder: "Enter number of rounds to complete", class: "form-control" %>
+</div>
+<div class="form-group">
+<%= f.label :score, class: "control-label" %>
+<%= f.text_field :score, placeholder: "Enter time completed", class: "form-control" %>
+</div>
+<div class="form-group">
+<%= f.label :notes, class: "control-label" %>
+<%= f.text_area :notes, placeholder: "Enter notes about workout", class: "form-control" %>
+</div>
 
-<%= f.label :score %>
-<%= f.text_field :score %>
-
-<%= f.label :notes %>
-<%= f.text_area :notes %>
-
-<%= f.submit %>
+<div class="form-group">
+<%= f.submit yield(:button_text), class: "btn btn-success" %>
+</div>
 
 <% end %>
