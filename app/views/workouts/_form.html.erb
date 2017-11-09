@@ -11,11 +11,17 @@
       </ul>
     </div>
   <% end %>
-<%= f.label :date %>
-<%= f.date_field :date %>
+  <div class="form-group">
+<h4><%= f.label :date, "Enter Date:" %></h4>
+<%= f.date_field :date, class: "form-control" %>
+</div>
 
-<%= f.submit "AMRAP"%>
-<%= f.submit "Rounds for Time"%>
-<%= f.submit "Strength" %>
+
+<div>
+  <h4>Select Workout Type:</h4>
+<%= f.submit "AMRAP", class: "btn btn-primary" %>
+<%= f.submit "Rounds for Time", class: "btn btn-primary" %>
+<%= f.submit "Strength", class: "btn btn-primary" %>
+</div>
 
 <% end %>

@@ -1,19 +1,21 @@
+<h3>Update Workout</h3>
+
 <%= form_for @workout, html: {class: "form-inline"} do |f| %>
 <div class="form-group">
-<%= f.label :date, class: "control-label" %>
-<%= f.date_field :date, class: "form-control" %>
+  <%= f.label :date, class: "control-label" %>
+  <%= f.date_field :date, class: "form-control" %>
 </div>
 
 <div class="form-group">
-<%= f.submit "Update Workout", class: "btn btn-success" %>
-<%= link_to "Delete Workout", workout_path, method: :delete, data: {confirm: "Are you sure you want to delete this workout?"}, class: "btn btn-danger" %>
+  <%= f.submit "Update Workout", class: "btn btn-success" %>
+  <%= link_to "Delete Workout", workout_path, method: :delete, data: {confirm: "Are you sure you want to delete this workout?"}, class: "btn btn-danger" %>
 </div>
 
 <div class="">
   <h4>Add Another:</h4>
-<%= f.submit "AMRAP", class: "btn btn-primary"%>
-<%= f.submit "Rounds for Time", class: "btn btn-primary"%>
-<%= f.submit "Strength", class: "btn btn-primary" %>
+  <%= f.submit "AMRAP", class: "btn btn-primary"%>
+  <%= f.submit "Rounds for Time", class: "btn btn-primary"%>
+  <%= f.submit "Strength", class: "btn btn-primary" %>
 
 </div>
 <% end %>
@@ -23,14 +25,16 @@
 <h3>
   <% if amrap.name.present? %>
   <%= link_to "#{amrap.name} - #{amrap.time} Minute AMRAP", workout_amrap_path(@workout, amrap) %>
-  <% else %>
+<% else %>
   <%= link_to "#{amrap.time} Minute AMRAP", workout_amrap_path(@workout, amrap) %>
   <% end %>
 </h3>
 <p>Score:
   <%= amrap.score %>
-  rounds <%= amrap.additional_reps %> reps</p>
-  <p><%= link_to "Edit", edit_workout_amrap_path(@workout, amrap) %></p>
+  rounds
+  <%= amrap.additional_reps %>
+  reps</p>
+<p><%= link_to "Edit", edit_workout_amrap_path(@workout, amrap) %></p>
 <% end %>
 <% end %>
 
@@ -39,14 +43,14 @@
 <h3>
   <% if rft.name.present? %>
   <%= link_to "#{rft.name} - #{pluralize(rft.rounds, 'Round')} for Time", workout_rft_path(@workout, rft) %>
-  <% else %>
+<% else %>
   <%= link_to "#{pluralize(rft.rounds, 'Round')} for Time", workout_rft_path(@workout, rft) %>
   <% end %>
 </h3>
 <p>Score:
   <%= rft.score %>
-  </p>
-  <p><%= link_to "Edit", edit_workout_rft_path(@workout, rft) %></p>
+</p>
+<p><%= link_to "Edit", edit_workout_rft_path(@workout, rft) %></p>
 <% end %>
 <% end %>
 

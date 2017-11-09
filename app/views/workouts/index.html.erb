@@ -1,6 +1,6 @@
 
 <div class="workouts">
-  <h2>Your workouts</h2>
+  <h2>Workouts</h2>
   <% @workouts.each do |workout| %>
     <div class="workout">
       <%= link_to workout.date.strftime("%A, %B %d, %Y"), workout_path(workout) %>
