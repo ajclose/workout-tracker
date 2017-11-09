@@ -1,6 +1,7 @@
-<h3><%= link_to @strength.workout.date, workout_path(@strength.workout) %></h3>
+<h3><%= link_to @workout.date.strftime("%A, %B %d, %Y"), workout_path(@workout) %></h3>
+<h4><%= @strength.movement %></h4>
 
-
-<h3><%= @strength.sets %> X <%= @strength.reps %> <%= @strength.movement %> <%= @strength.weight %> lbs </h3>
+<h5><%= @strength.sets %> X <%= @strength.reps %> at <%= @strength.weight %> lbs </h5>
+<%= link_to "Edit", edit_workout_strength_path(@workout, @strength) %>
 <h4>Notes:</h4>
 <p><%= @strength.notes %></p>
