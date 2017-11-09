@@ -16,3 +16,11 @@
   width: 1.5em;
   margin: .5em;
 }
+
+.workout-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
