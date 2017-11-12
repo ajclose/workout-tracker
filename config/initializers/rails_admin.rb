@@ -1,5 +1,11 @@
 RailsAdmin.config do |config|
 
+  config.authorize_with do |controller|
+    unless session[:user_id] && User.find(session[:user_id]).admin?
+    flash[:danger] = "You are not authorized to view that page"
+    redirect_to main_app.root_path
+  end
+  end
 
   config.actions do
     dashboard                     # mandatory
