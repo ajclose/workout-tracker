@@ -49,7 +49,7 @@ function plateForm() {
 
   <div class="total-weight-input">
   <label for="totalWeight">Total Weight</label>
-  <input type="number" name="totalWeight" id="totalWeight" value="" placeholder="Enter total weight">
+  <input class="form-control" type="number" name="totalWeight" id="totalWeight" value="" placeholder="Enter total weight">
   </div>
 
   <button class="btn btn-primary" name="button" type="submit">Tell me what I need!</button>

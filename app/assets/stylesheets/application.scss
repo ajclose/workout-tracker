@@ -5,9 +5,23 @@
 @import "workouts";
 @import "amraps";
 @import "rfts";
+@import "navbar";
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f1;
+  color: #666666;
+}
+
+a {
+  color: #3498db;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .container {
