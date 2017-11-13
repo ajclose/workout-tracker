@@ -1,4 +1,5 @@
 class Amrapmovement < ApplicationRecord
+  include PgSearch
   belongs_to :amrap
 
   validate :movement_present?
@@ -8,4 +9,6 @@ class Amrapmovement < ApplicationRecord
       errors.add :base, "Please enter a movement name"
     end
   end
+
+  multisearchable :against => [:rx_movement, :scaled_movement]
 end

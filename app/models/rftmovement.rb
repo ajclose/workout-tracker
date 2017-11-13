@@ -1,4 +1,5 @@
 class Rftmovement < ApplicationRecord
+  include PgSearch
   belongs_to :rft
 
   validate :movement_present?
@@ -8,4 +9,6 @@ class Rftmovement < ApplicationRecord
       errors.add :base, "Please enter a movement name"
     end
   end
+
+  multisearchable :against => [:rx_movement, :scaled_movement]
 end

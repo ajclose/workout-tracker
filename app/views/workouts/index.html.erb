@@ -1,6 +1,17 @@
 
 <div class="workouts">
   <h2>Workouts</h2>
+  <%= form_tag(workouts_path, method: :get, class: "form-horizontal") do %>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-4">
+      <%= text_field_tag :search, "", placeholder: "Search", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<% if @workouts.any? %>
   <% @workouts.each do |workout| %>
     <div class="workout">
       <%= link_to workout.date.strftime("%A, %B %d, %Y"), workout_path(workout) %>
@@ -16,5 +27,8 @@
       <% end %>
     </div>
     </div>
+  <% end %>
+  <% else %>
+  <h4>No workouts found!</h4>
   <% end %>
 </div>
