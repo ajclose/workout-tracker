@@ -1,24 +1,24 @@
-# README
+# WODTracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### WODTracker is an app that allows you to simply track crossfit style workouts.  Choose from 3 different types of workouts: AMRAP, Rounds for Time, and Strength.  
+### WODTracker also includes a barbell calculator that does the heavy lifting for you so your brain doesn't have to.  The barbell calculator has 2 options: Tell me what I need and Tell me what I have.
 
-Things you may want to cover:
+![alt text](https://thumbs.gfycat.com/RashDistinctIraniangroundjay-size_restricted.gif "Barbell calculator")
 
-* Ruby version
 
-* System dependencies
+### WODTracker is mobile responsive so you can quickly and easily log your workouts at the gym from your phone.
 
-* Configuration
+#### Home Screen
+<img src="./app/assets/images/home-screen.png" width="50%">
 
-* Database creation
+#### New Workout
+<img src="./app/assets/images/new-workout.png" width="50%">
 
-* Database initialization
+#### Show Workout
+<img src="./app/assets/images/show-workout.png" width="50%">
 
-* How to run the test suite
+#### Tell me what I have
+<img src="./app/assets/images/tell-me-what-i-have.png" width="50%">
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Tell me what I need
+<img src="./app/assets/images/tell-me-what-i-need.png" width="50%">
